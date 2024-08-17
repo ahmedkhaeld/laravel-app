@@ -2,10 +2,12 @@
 
 namespace Database\Factories;
 
+use App\Models\Priority;
+use App\Models\Tasks;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
- * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Tasks>
+ * @extends Factory<Tasks>
  */
 class TasksFactory extends Factory
 {
@@ -20,6 +22,8 @@ class TasksFactory extends Factory
             //map the column names with values
             'name'=> fake()->sentence(),
             'is_completed'=> rand(0, 1),
+            //set priority to null or rand priority id
+            'priority_id'=>rand(0,1) === 0  ? NULL : Priority::pluck('id')->random(),
         ];
     }
 }

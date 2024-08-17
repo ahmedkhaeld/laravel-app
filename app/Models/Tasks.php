@@ -12,5 +12,10 @@ class Tasks extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['name'];
+    protected $fillable = ['name', 'priority_id'];
+
+    public function priority(): \Illuminate\Database\Eloquent\Relations\BelongsTo
+    {
+        return $this->belongsTo(Priority::class);
+    }
 }

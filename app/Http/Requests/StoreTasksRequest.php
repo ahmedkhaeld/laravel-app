@@ -24,7 +24,14 @@ class StoreTasksRequest extends FormRequest
     {
         return [
             'name' =>'required|string|max:255',
+            'priority_id' => 'nullable|exists:priorities,id'
 
+        ];
+    }
+
+    public function attributes() {
+        return [
+            'priority_id' => 'priority'
         ];
     }
 }

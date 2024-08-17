@@ -7,16 +7,17 @@ use App\Http\Requests\StoreTasksRequest;
 use App\Http\Requests\UpdateTasksRequest;
 use App\Http\Resources\TasksResource;
 use App\Models\Tasks;
+use Illuminate\Http\Resources\Json\AnonymousResourceCollection;
 
 class TasksController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
-    public function index(): \Illuminate\Http\Resources\Json\AnonymousResourceCollection
+    public function index(): AnonymousResourceCollection
     {
         //return all tasks from the db
-        return TasksResource::collection(Tasks::all());
+        return TasksResource::collection(Tasks::with('priority')->get());
     }
 
 
@@ -26,6 +27,7 @@ class TasksController extends Controller
     public function store(StoreTasksRequest $request): TasksResource
     {
         $task = Tasks::create($request->validated());
+        $task->load('priority');
         return new TasksResource($task);
 
     }
