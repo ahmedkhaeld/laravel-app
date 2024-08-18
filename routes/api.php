@@ -1,7 +1,7 @@
 <?php
 
-use App\Http\Controllers\Api\V1\CompleteTaskController;
-use App\Http\Controllers\Api\V1\TasksController;
+use App\Http\Controllers\Api\V1\Tasks\CompleteTaskController;
+use App\Http\Controllers\Api\V1\Tasks\TasksController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 

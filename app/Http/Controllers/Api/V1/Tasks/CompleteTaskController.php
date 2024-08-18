@@ -1,11 +1,10 @@
 <?php
 
-namespace App\Http\Controllers\Api\V1;
+namespace App\Http\Controllers\Api\V1\Tasks;
 
 use App\Http\Controllers\Controller;
 use App\Http\Resources\TasksResource;
 use App\Models\Tasks;
-use Illuminate\Console\View\Components\Task;
 use Illuminate\Http\Request;
 
 class CompleteTaskController extends Controller
