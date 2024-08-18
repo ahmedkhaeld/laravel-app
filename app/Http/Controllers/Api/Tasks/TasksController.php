@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Api\V1\Tasks;
+namespace App\Http\Controllers\Api\Tasks;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\StoreTasksRequest;
