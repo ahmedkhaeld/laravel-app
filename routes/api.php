@@ -1,5 +1,10 @@
 <?php
 
+use App\Http\Controllers\Api\SchoolManagement\ClassRoomController;
+use App\Http\Controllers\Api\SchoolManagement\SchoolController;
+use App\Http\Controllers\Api\SchoolManagement\StudentController;
+use App\Http\Controllers\Api\SchoolManagement\SubjectController;
+use App\Http\Controllers\Api\SchoolManagement\TeacherController;
 use App\Http\Controllers\Api\Tasks\CompleteTaskController;
 use App\Http\Controllers\Api\Tasks\TasksController;
 use Illuminate\Http\Request;
@@ -16,3 +21,10 @@ Route::prefix('tasks')->group(function () {
     ]);
     Route::patch('{task}/complete', CompleteTaskController::class);
 });
+
+
+Route::apiResource('schools', SchoolController::class);
+Route::apiResource('classrooms', ClassRoomController::class);
+Route::apiResource('students', StudentController::class);
+Route::apiResource('teachers', TeacherController::class);
+Route::apiResource('subjects', SubjectController::class);
